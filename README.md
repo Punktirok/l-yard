@@ -8,7 +8,7 @@ This repository contains only the generated static website, local images/fonts a
 
 ## Publishing
 
-GitHub Pages serves the root directory of `main`. `.nojekyll` disables Jekyll processing. Pushing updated static files to `main` triggers publication automatically. No custom domain or paid hosting is configured.
+GitHub Pages serves the root directory of `main`. `.nojekyll` disables Jekyll processing. Pushing updated static files to `main` triggers publication automatically. No custom domain or paid hosting is configured. `404.html` is the custom error document for unknown URLs, including nested paths. It uses `/l-yard/`-rooted assets and a home link, without JavaScript or redirecting to the home page.
 
 The editable source is maintained separately in the project's isolated `static-landing/` folder. Run its build, content check, TypeScript check and static verifier, then update this repository with the contents of its generated `site/` directory. Do not upload environment files, databases, uploads, source tooling or `node_modules`.
 
@@ -18,7 +18,7 @@ The editable source is maintained separately in the project's isolated `static-l
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:4173/. Any ordinary static HTTP server can serve these files.
+Open http://127.0.0.1:4173/. Any ordinary static HTTP server can serve these files. Python’s generic preview server does not emulate Pages error routing; the 404 document’s asset/home paths expect the `/l-yard/` publishing prefix.
 
 ## Content and notices
 
